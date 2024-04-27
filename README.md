@@ -1,2 +1,2 @@
 # Jeremy.ObjectCollection
-:rockect: Object Collection Application
+:rocket: Object Collection Application
