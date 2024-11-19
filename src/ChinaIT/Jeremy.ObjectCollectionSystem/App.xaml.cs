@@ -9,7 +9,7 @@ namespace Jeremy.ObjectCollectionSystem;
 public partial class App : Application
 {
     // 创建互斥对象
-    private static readonly Mutex mutex = new(true, "Weint.Uploader.Client");
+    private static readonly Mutex mutex = new(true, "Jeremy.ObjectCollectionSystem");
 
     /// <summary>
     /// 重写 Startup 方法，添加全局异常处理

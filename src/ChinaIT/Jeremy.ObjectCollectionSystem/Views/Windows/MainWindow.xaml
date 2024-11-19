@@ -7,6 +7,7 @@
     xmlns:local="clr-namespace:Jeremy.ObjectCollectionSystem"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
+    Closing="Window_Closing"
     Width="1200"
     Height="800"
     ActiveGlowColor="#7464ec"
