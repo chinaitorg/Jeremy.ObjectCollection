@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="PrimaryColor">#FFBB33FF</Color>
+    <Color x:Key="DarkPrimaryColor">#FFBB33FF</Color>
+
+    <SolidColorBrush x:Key="MouseHoverBrush" Color="#FFBB33FF" />
+    <SolidColorBrush x:Key="MouseDownBrush" Color="#FF7D00BC" />
+
+    <SolidColorBrush x:Key="BasePrimaryBrush" Color="{DynamicResource PrimaryColor}" />
+    <LinearGradientBrush x:Key="PrimaryBrush" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Offset="0" Color="{DynamicResource PrimaryColor}" />
+        <GradientStop Offset="1" Color="{DynamicResource DarkPrimaryColor}" />
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="DarkPrimaryBrush" Color="{DynamicResource DarkPrimaryColor}" />
+
+    <Color x:Key="TitleColor">#FFBB33FF</Color>
+    <Color x:Key="SecondaryTitleColor">#FFBB33FF</Color>
+
+    <LinearGradientBrush x:Key="TitleBrush" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Offset="0" Color="{DynamicResource TitleColor}" />
+        <GradientStop Offset="1" Color="{DynamicResource SecondaryTitleColor}" />
+    </LinearGradientBrush>
+
+</ResourceDictionary>

@@ -1,0 +1,21 @@
+﻿<hc:GlowWindow
+    x:Class="Jeremy.ObjectCollectionSystem.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:Jeremy.ObjectCollectionSystem"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="1200"
+    Height="800"
+    ActiveGlowColor="#7464ec"
+    Background="{DynamicResource RegionBrush}"
+    ResizeMode="CanResizeWithGrip"
+    ShowMaxButton="True"
+    ShowNonClientArea="True"
+    ShowTitle="False"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid />
+</hc:GlowWindow>
