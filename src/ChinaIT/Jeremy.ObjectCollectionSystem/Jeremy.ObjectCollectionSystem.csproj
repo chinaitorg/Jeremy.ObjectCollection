@@ -32,7 +32,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Borders\" />
-    <Folder Include="Views\UserControls\" />
   </ItemGroup>
 
   <ItemGroup>
