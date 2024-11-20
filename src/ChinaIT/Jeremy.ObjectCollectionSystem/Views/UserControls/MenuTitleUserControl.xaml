@@ -52,7 +52,7 @@
             LineStrokeThickness="2"
             Orientation="Vertical" />
         <Button
-            hc:IconElement.Geometry="{StaticResource HelpGeometry}"
+            hc:IconElement.Geometry="{StaticResource GithubGeometry}"
             hc:IconElement.Width="16"
             Cursor="Hand"
             Foreground="{DynamicResource PrimaryTextBrush}"
@@ -65,7 +65,6 @@
             Command="{Binding ChangeThemeCommand}"
             Cursor="Hand"
             Foreground="{DynamicResource PrimaryTextBrush}"
-            Opacity="0.8"
             Style="{StaticResource ButtonIcon}"
             ToolTip="切换主题" />
     </StackPanel>
