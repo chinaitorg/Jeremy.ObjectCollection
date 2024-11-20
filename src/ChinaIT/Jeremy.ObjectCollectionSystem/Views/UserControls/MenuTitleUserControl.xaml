@@ -52,12 +52,14 @@
             LineStrokeThickness="2"
             Orientation="Vertical" />
         <Button
-            hc:IconElement.Geometry="{StaticResource HelpGeometry}"
+            hc:IconElement.Geometry="{StaticResource GithubGeometry}"
             hc:IconElement.Width="16"
+            Command="hc:ControlCommands.OpenLink"
+            CommandParameter="https://github.com/chinaitorg/Jeremy.ObjectCollection"
             Cursor="Hand"
             Foreground="{DynamicResource PrimaryTextBrush}"
             Style="{StaticResource ButtonIcon}"
-            ToolTip="获取帮助"
+            ToolTip="访问 GitHub 仓库"
             Visibility="Visible" />
         <Button
             hc:IconElement.Geometry="{StaticResource MoonGeometry}"
@@ -65,7 +67,6 @@
             Command="{Binding ChangeThemeCommand}"
             Cursor="Hand"
             Foreground="{DynamicResource PrimaryTextBrush}"
-            Opacity="0.8"
             Style="{StaticResource ButtonIcon}"
             ToolTip="切换主题" />
     </StackPanel>
