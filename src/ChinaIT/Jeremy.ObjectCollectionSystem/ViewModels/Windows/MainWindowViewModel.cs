@@ -2,6 +2,8 @@
 using System.Windows.Media;
 using System.Windows;
 using Jeremy.ObjectCollectionSystem.Domains;
+using Jeremy.ObjectCollectionSystem.Services;
+using Jeremy.ObjectCollectionSystem.Models;
 
 namespace Jeremy.ObjectCollectionSystem.ViewModels.Windows;
 
@@ -25,7 +27,7 @@ public class MainWindowViewModel : ObservableRecipient
                 try
                 {
                     // 清除90天内的采集历史记录
-                    //await JobLogService.DeleteAsync(90);
+                    await JobLogService.DeleteAsync(90);
                 }
                 catch
                 {
@@ -48,38 +50,38 @@ public class MainWindowViewModel : ObservableRecipient
         // 颜色
         ThemeManager.Current.ApplicationTheme = ApplicationTheme.Dark;
         // 初始化基础信息配置
-        //var data = await BasicConfigService.GetAsync();
-        //if (data is null)
-        //{
-        //    TbBasicConfig tbBasic = new()
-        //    {
-        //        Id = Guid.NewGuid().ToString().Replace("-", ""),
-        //        Ip = NetHelper.GetIp2(),
-        //        Mac = NetHelper.Mac(),
-        //        CreateBy = "Administrator",
-        //        CreateTime = DateTime.Now,
-        //        UpdateBy = "Administrator",
-        //        UpdateTime = DateTime.Now,
-        //        DeviceName = "N/A",
-        //        DeviceNumber = "N/A",
-        //        Comment = "系统自动添加"
-        //    };
-        //    _ = BasicConfigService.Post(tbBasic);
-        //}
-        //else
-        //{
-        //    // 取消IP自动更新
-        //    //data.Ip = NetHelper.GetIp2();
-        //    data.Mac = NetHelper.Mac();
-        //    data.UpdateBy = "Administrator";
-        //    data.UpdateTime = DateTime.Now;
-        //    _ = BasicConfigService.Put(data);
-        //}
-        //// 初始化所有参数
-        //_ = Task.Run(async () =>
-        //{
-        //    _ = await InitService.Init();
-        //});
+        var data = await BasicConfigService.GetAsync();
+        if (data is null)
+        {
+            TbBasicConfig tbBasic = new()
+            {
+                Id = Guid.NewGuid().ToString().Replace("-", ""),
+                Ip = NetHelper.GetIp2(),
+                Mac = NetHelper.Mac(),
+                CreateBy = "Administrator",
+                CreateTime = DateTime.Now,
+                UpdateBy = "Administrator",
+                UpdateTime = DateTime.Now,
+                DeviceName = "N/A",
+                DeviceNumber = "N/A",
+                Comment = "系统自动添加"
+            };
+            _ = BasicConfigService.Post(tbBasic);
+        }
+        else
+        {
+            // 取消IP自动更新
+            //data.Ip = NetHelper.GetIp2();
+            data.Mac = NetHelper.Mac();
+            data.UpdateBy = "Administrator";
+            data.UpdateTime = DateTime.Now;
+            _ = BasicConfigService.Put(data);
+        }
+        // 初始化所有参数
+        _ = Task.Run(async () =>
+        {
+            _ = await InitService.Init();
+        });
 
     }
 
