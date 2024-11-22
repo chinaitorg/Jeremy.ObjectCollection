@@ -183,7 +183,7 @@ public class MainWindowViewModel : ObservableRecipient
             TabItem tabItem = new()
             {
                 Header = "MinIO 配置",
-                //Content = new MinIOConfigUserControl()
+                Content = new MinIOConfigUserControl()
             };
             tabItem.SetValue(IconElement.HeightProperty, 16.0);
             tabItem.SetValue(IconElement.WidthProperty, 16.0);
