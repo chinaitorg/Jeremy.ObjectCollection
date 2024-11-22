@@ -2,6 +2,9 @@
 using System.Windows.Media;
 using System.Windows;
 using Jeremy.ObjectCollectionSystem.Domains;
+using Jeremy.ObjectCollectionSystem.Services;
+using Jeremy.ObjectCollectionSystem.Models;
+using Jeremy.ObjectCollectionSystem.Views.UserControls;
 
 namespace Jeremy.ObjectCollectionSystem.ViewModels.Windows;
 
@@ -18,6 +21,8 @@ public class MainWindowViewModel : ObservableRecipient
     /// </summary>
     private async Task InitAsync()
     {
+        // Theme
+        ThemeManager.Current.ApplicationTheme = ApplicationTheme.Dark;
         _ = Task.Run(async () =>
         {
             while (true)
@@ -25,7 +30,7 @@ public class MainWindowViewModel : ObservableRecipient
                 try
                 {
                     // 清除90天内的采集历史记录
-                    //await JobLogService.DeleteAsync(90);
+                    await JobLogService.DeleteAsync(90);
                 }
                 catch
                 {
@@ -45,41 +50,39 @@ public class MainWindowViewModel : ObservableRecipient
         // 参数初始化
         MenuSelectedIndex = -1;
 
-        // 颜色
-        ThemeManager.Current.ApplicationTheme = ApplicationTheme.Dark;
         // 初始化基础信息配置
-        //var data = await BasicConfigService.GetAsync();
-        //if (data is null)
-        //{
-        //    TbBasicConfig tbBasic = new()
-        //    {
-        //        Id = Guid.NewGuid().ToString().Replace("-", ""),
-        //        Ip = NetHelper.GetIp2(),
-        //        Mac = NetHelper.Mac(),
-        //        CreateBy = "Administrator",
-        //        CreateTime = DateTime.Now,
-        //        UpdateBy = "Administrator",
-        //        UpdateTime = DateTime.Now,
-        //        DeviceName = "N/A",
-        //        DeviceNumber = "N/A",
-        //        Comment = "系统自动添加"
-        //    };
-        //    _ = BasicConfigService.Post(tbBasic);
-        //}
-        //else
-        //{
-        //    // 取消IP自动更新
-        //    //data.Ip = NetHelper.GetIp2();
-        //    data.Mac = NetHelper.Mac();
-        //    data.UpdateBy = "Administrator";
-        //    data.UpdateTime = DateTime.Now;
-        //    _ = BasicConfigService.Put(data);
-        //}
-        //// 初始化所有参数
-        //_ = Task.Run(async () =>
-        //{
-        //    _ = await InitService.Init();
-        //});
+        var data = await BasicConfigService.GetAsync();
+        if (data is null)
+        {
+            TbBasicConfig tbBasic = new()
+            {
+                Id = Guid.NewGuid().ToString().Replace("-", ""),
+                Ip = NetHelper.GetIp2(),
+                Mac = NetHelper.Mac(),
+                CreateBy = "Administrator",
+                CreateTime = DateTime.Now,
+                UpdateBy = "Administrator",
+                UpdateTime = DateTime.Now,
+                DeviceName = "N/A",
+                DeviceNumber = "N/A",
+                Comment = "系统自动添加"
+            };
+            _ = BasicConfigService.Post(tbBasic);
+        }
+        else
+        {
+            // 取消IP自动更新
+            //data.Ip = NetHelper.GetIp2();
+            data.Mac = NetHelper.Mac();
+            data.UpdateBy = "Administrator";
+            data.UpdateTime = DateTime.Now;
+            _ = BasicConfigService.Put(data);
+        }
+        // 初始化所有参数
+        _ = Task.Run(async () =>
+        {
+            _ = await InitService.Init();
+        });
 
     }
 
@@ -151,7 +154,7 @@ public class MainWindowViewModel : ObservableRecipient
             TabItem tabItem = new()
             {
                 Header = "基础配置",
-                //Content = new BasicConfigUserControl()
+                Content = new BasicConfigUserControl()
             };
             tabItem.SetValue(IconElement.HeightProperty, 16.0);
             tabItem.SetValue(IconElement.WidthProperty, 16.0);
@@ -430,7 +433,7 @@ public class MainWindowViewModel : ObservableRecipient
         // 更新状态
         _ = Task.Run(async () =>
         {
-            //await JobConfigService.Put(false);
+            await JobConfigService.Put(false);
         });
         cancellationToken.Cancel();
         Growl.Success("计划任务已停止！");

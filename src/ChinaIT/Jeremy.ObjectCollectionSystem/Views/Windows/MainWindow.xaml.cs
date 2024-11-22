@@ -1,4 +1,5 @@
-﻿using Jeremy.ObjectCollectionSystem.Views.UserControls;
+﻿using Jeremy.ObjectCollectionSystem.ViewModels.Windows;
+using Jeremy.ObjectCollectionSystem.Views.UserControls;
 
 namespace Jeremy.ObjectCollectionSystem;
 
@@ -10,6 +11,7 @@ public partial class MainWindow
     public MainWindow()
     {
         InitializeComponent();
+        DataContext = StaticMainWindowWiewModel.VM;
     }
 
     /// <summary>
