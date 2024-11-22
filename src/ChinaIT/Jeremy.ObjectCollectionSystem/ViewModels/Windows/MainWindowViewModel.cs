@@ -4,6 +4,7 @@ using System.Windows;
 using Jeremy.ObjectCollectionSystem.Domains;
 using Jeremy.ObjectCollectionSystem.Services;
 using Jeremy.ObjectCollectionSystem.Models;
+using Jeremy.ObjectCollectionSystem.Views.UserControls;
 
 namespace Jeremy.ObjectCollectionSystem.ViewModels.Windows;
 
@@ -20,6 +21,8 @@ public class MainWindowViewModel : ObservableRecipient
     /// </summary>
     private async Task InitAsync()
     {
+        // Theme
+        ThemeManager.Current.ApplicationTheme = ApplicationTheme.Dark;
         _ = Task.Run(async () =>
         {
             while (true)
@@ -47,8 +50,6 @@ public class MainWindowViewModel : ObservableRecipient
         // 参数初始化
         MenuSelectedIndex = -1;
 
-        // 颜色
-        ThemeManager.Current.ApplicationTheme = ApplicationTheme.Dark;
         // 初始化基础信息配置
         var data = await BasicConfigService.GetAsync();
         if (data is null)
@@ -153,7 +154,7 @@ public class MainWindowViewModel : ObservableRecipient
             TabItem tabItem = new()
             {
                 Header = "基础配置",
-                //Content = new BasicConfigUserControl()
+                Content = new BasicConfigUserControl()
             };
             tabItem.SetValue(IconElement.HeightProperty, 16.0);
             tabItem.SetValue(IconElement.WidthProperty, 16.0);
@@ -432,7 +433,7 @@ public class MainWindowViewModel : ObservableRecipient
         // 更新状态
         _ = Task.Run(async () =>
         {
-            //await JobConfigService.Put(false);
+            await JobConfigService.Put(false);
         });
         cancellationToken.Cancel();
         Growl.Success("计划任务已停止！");
