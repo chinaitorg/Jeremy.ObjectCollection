@@ -183,7 +183,7 @@ public class MainWindowViewModel : ObservableRecipient
             TabItem tabItem = new()
             {
                 Header = "MinIO 配置",
-                //Content = new MinIOConfigUserControl()
+                Content = new MinIOConfigUserControl()
             };
             tabItem.SetValue(IconElement.HeightProperty, 16.0);
             tabItem.SetValue(IconElement.WidthProperty, 16.0);
@@ -212,7 +212,7 @@ public class MainWindowViewModel : ObservableRecipient
             TabItem tabItem = new()
             {
                 Header = "Kafka 配置",
-                //Content = new KafkaConfigUserControl()
+                Content = new KafkaConfigUserControl()
             };
             tabItem.SetValue(IconElement.HeightProperty, 16.0);
             tabItem.SetValue(IconElement.WidthProperty, 16.0);
@@ -241,7 +241,7 @@ public class MainWindowViewModel : ObservableRecipient
             TabItem tabItem = new()
             {
                 Header = "Job 配置",
-                //Content = new JobConfigUserControl()
+                Content = new JobConfigUserControl()
             };
             tabItem.SetValue(IconElement.HeightProperty, 16.0);
             tabItem.SetValue(IconElement.WidthProperty, 16.0);
