@@ -241,7 +241,7 @@ public class MainWindowViewModel : ObservableRecipient
             TabItem tabItem = new()
             {
                 Header = "Job 配置",
-                //Content = new JobConfigUserControl()
+                Content = new JobConfigUserControl()
             };
             tabItem.SetValue(IconElement.HeightProperty, 16.0);
             tabItem.SetValue(IconElement.WidthProperty, 16.0);
