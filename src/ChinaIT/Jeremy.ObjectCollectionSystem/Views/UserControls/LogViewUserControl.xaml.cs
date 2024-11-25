@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using Jeremy.ObjectCollectionSystem.ViewModels.UserControls;
 
 namespace Jeremy.ObjectCollectionSystem.Views.UserControls;
 
@@ -10,5 +11,6 @@ public partial class LogViewUserControl : UserControl
     public LogViewUserControl()
     {
         InitializeComponent();
+        DataContext = new LogViewViewModel();
     }
 }
