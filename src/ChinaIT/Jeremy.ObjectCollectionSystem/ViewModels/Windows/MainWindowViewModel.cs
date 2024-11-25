@@ -270,7 +270,7 @@ public class MainWindowViewModel : ObservableRecipient
             TabItem tabItem = new()
             {
                 Header = "日志查看",
-                //Content = new LogViewUserControl()
+                Content = new LogViewUserControl()
             };
             tabItem.SetValue(IconElement.HeightProperty, 16.0);
             tabItem.SetValue(IconElement.WidthProperty, 16.0);
