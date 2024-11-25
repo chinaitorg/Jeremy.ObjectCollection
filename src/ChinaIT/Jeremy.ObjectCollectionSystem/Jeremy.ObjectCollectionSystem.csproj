@@ -14,6 +14,7 @@
     <None Remove="Assets\Font\HARMONYOS_SANS_SC_REGULAR.TTF" />
     <None Remove="Assets\Icon\basic.png" />
     <None Remove="Assets\Icon\bk.png" />
+    <None Remove="Assets\Icon\file.png" />
     <None Remove="Assets\Icon\job.png" />
     <None Remove="Assets\Icon\kafka.png" />
     <None Remove="Assets\Icon\log.png" />
@@ -29,6 +30,7 @@
     <Resource Include="Assets\Font\HARMONYOS_SANS_SC_REGULAR.TTF" />
     <Resource Include="Assets\Icon\basic.png" />
     <Resource Include="Assets\Icon\bk.png" />
+    <Resource Include="Assets\Icon\file.png" />
     <Resource Include="Assets\Icon\job.png" />
     <Resource Include="Assets\Icon\kafka.png" />
     <Resource Include="Assets\Icon\log.png" />
